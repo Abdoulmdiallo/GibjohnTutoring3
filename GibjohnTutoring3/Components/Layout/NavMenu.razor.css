@@ -1,0 +1,92 @@
+
+/*@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 100;
+    src: url(https://fonts.gstatic.com/s/poppins/v21/pxiGyp8kv8JHgFVrLPTufntAKPY.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}*/
+/*resets sizing to 0 and makes the fonts Poppins or sans serif*/
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}*/
+/*the nav bar makes it fixed so it stays on top of the page */
+/*header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99
+}*/
+/*margin at the top so that content doesn't go under the navigation bar*/
+/*body {
+    margin-top: 91px;
+}
+
+.logo {
+    position: relative;
+    font-size: 2em;
+    color: aliceblue;
+    user-select: none;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: aliceblue;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 40px;
+}
+
+.navigation .btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    left: 60px;
+    background: transparent;
+    color: aliceblue;
+    border: 2px solid;
+    border-color: aliceblue;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: 0.5s;
+}
+
+    .navigation .btnLogin-popup:hover {
+        background: aliceblue;
+        color: black;
+    }
+
+.navigation a::after {
+    left: 0;
+    bottom: -5px;
+    content: close-quote;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 6px;
+    transform: scaleX(0);*/ /*CHANGES THE SIZE OF THE LINES WHEN NOT*/
+    /*transition: transform 0.5s;*/ /*plays an animation when hovered over */
+/*}
+
+.Login_Body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vh;
+}
+
+.navigation a:hover:after {
+    transform: scaleX(1)
+}*/

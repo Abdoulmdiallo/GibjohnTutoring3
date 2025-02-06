@@ -1,0 +1,51 @@
+﻿@page "/Sign_up"
+@using GibjohnTutoring3.Models
+@using GibjohnTutoring3.Components
+@using GibjohnTutoring3.Services
+@inject GibjohnTutoring3.Services.CustomerService CustomerService
+@inject CustomerService CustomerService
+@rendermode InteractiveServer
+ <link rel="stylesheet" href="/CSS/Signup.css" /> 
+
+<h3 class="form-title">Register</h3>
+
+<h3 class="form-title">Register</h3>
+
+<EditForm Model="newCustomer" OnValidSubmit="RegisterCustomer" FormName="RegisterForm" class="register-form">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="form-group">
+        <label class="form-label">Username</label><br />
+        <input class="form-input" required @bind="newCustomer.Username" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Password</label><br />
+        <input class="form-input" type="password" required @bind="newCustomer.Password" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Email</label><br />
+        <input class="form-input" type="email" @bind="newCustomer.Email" />
+    </div>
+
+    <button class="submit-button">Register</button>
+</EditForm>
+
+<!-- Add the "Already have an account?" link here -->
+<div class="login-link">
+    <p>Already have an account? <a href="/Login"> Login</a></p>
+</div>
+
+
+@code {
+    private Customer newCustomer = new Customer();
+
+    private async Task RegisterCustomer()
+    {
+        
+        await CustomerService.AddCustomerAsync(newCustomer);
+        Console.WriteLine("button clicked");
+    }
+
+}
