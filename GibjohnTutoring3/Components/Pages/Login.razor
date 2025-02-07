@@ -1,11 +1,49 @@
 ﻿@page "/Login"
+@using GibjohnTutoring3.Models
+@inject GibjohnTutoring3.Services.CustomerService CustomerService
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
 <link rel=" stylesheet" href="/CCS/Login.css"/>		
 <body>	
-	<h3>Login</h3>
+    <h3 class="form-title">Login</h3>
 
+    <h3 class="form-title">Register</h3>
+
+    <EditForm Model="newCustomer" OnValidSubmit="LoginCustomer" FormName="LoginForm" class="Login-form">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="form-group">
+            <label class="form-label">Username</label><br />
+            <input class="form-input" required @bind="newCustomer.Username" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Password</label><br />
+            <input class="form-input" type="password" required @bind="newCustomer.Password" />
+        </div>
+
+        <button class="submit-button">Login</button>
+    </EditForm>
 </body>
 
 
 @code {
+    private Customer newCustomer = new Customer();
+    private string password;
 
+    private async Task LoginCustomer()
+    {
+        newCustomer.Password = await PasswordUtilis.Hashpassword(password);
+        newCustomer = await CustomerService.Login(newCustomer);
+        if (newCustomer == null) 
+        {
+            Console.WriteLine("user could't be logged in");
+
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/");//navigate to home         
+        }
+    }
 }

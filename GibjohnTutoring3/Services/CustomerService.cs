@@ -12,11 +12,19 @@ namespace GibjohnTutoring3.Services
         {
             _context = context;
         }
-
-        public async Task AddCustomerAsync(Customer customer) 
+        //adds customer to database
+        public async Task AddCustomerAsync(Customer customer)
         {
             await _context.Customers.AddAsync(customer);
             await _context.SaveChangesAsync();
+        }
+
+        //login
+        public async Task<Customer?> Login(Customer customer)
+        {
+            return await _context.Customers.FirstOrDefaultAsync
+            (c => c.Username == customer.Username && c.Password == customer.Password);
+        
         }
     }
 }
