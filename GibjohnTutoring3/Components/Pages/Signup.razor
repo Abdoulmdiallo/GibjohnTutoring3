@@ -5,7 +5,7 @@
 @inject GibjohnTutoring3.Services.CustomerService CustomerService
 @inject CustomerService CustomerService
 @rendermode InteractiveServer
- <link rel="stylesheet" href="/CSS/Signup.css" /> 
+<link rel="stylesheet" href="/CSS/Signup.css" /> 
 
 <h3 class="form-title">Register</h3>
 
@@ -43,9 +43,10 @@
 
     private async Task RegisterCustomer()
     {
-        
+
         await CustomerService.AddCustomerAsync(newCustomer);
-        Console.WriteLine("button clicked");
+        Console.WriteLine("User added");
+        StateHasChanged();
     }
 
 }
