@@ -24,7 +24,29 @@ namespace GibjohnTutoring3.Services
         {
             return await _context.Customers.FirstOrDefaultAsync
             (c => c.Username == customer.Username && c.Password == customer.Password);
-        
+
+        }
+        //userid to get customer name
+        public async Task<string> GetCustomerNameAsync(int userid)
+        {
+            if (userid == 0)
+            {
+                return "";
+            }
+            else
+            {
+                Customer customer = _context.Customers.SingleOrDefault(c => c.CustomerId == userid);
+                if (customer == null)
+                {
+                    return $"{customer.Username} {customer.Email}";
+                }
+
+                else
+                {
+                    return "";
+                }
+
+            }
         }
     }
 }

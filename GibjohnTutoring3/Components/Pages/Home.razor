@@ -1,10 +1,14 @@
 ﻿@page "/"
-	
+@using GibjohnTutoring3.Utilities
+@using GibjohnTutoring3.Services
+@inject NavigationManager NavigationManager
+@inject CustomerService CustomerService
+
 <link rel="stylesheet " href="/CSS/Homepage.css"/>
 
 
 <body >
-    
+
     <div class="join_now">
         <h1>Learn up to 2x Faster with GibJohn Tutoring</h1>
         <button onclick="window.location.href='Login';">Join now</button>
@@ -12,8 +16,8 @@
         <p> ewulhbnfihlwe iwbehf wjinjiwe </p>
         <p> fn wiufnhijkw fnweuof wenf </p>
     </div>
-    
-    
+
+
     <!-- Background circles -->
     <div class="circle circle1"></div>
     <div class="circle circle2"></div>
@@ -22,3 +26,9 @@
 </body>
 
 
+@code{
+    protected override async Task OnInitializedAsync()
+    {
+        CustomerName = await CustomerService.GetCustomerNameAsync(UserSession.UserId);
+    }
+}

@@ -1,7 +1,11 @@
 using GibjohnTutoring3.Components;
+using GibjohnTutoring3.Utilities;
 using GibjohnTutoring3.Models;
 using GibjohnTutoring3.Services;
+
+
 using Microsoft.EntityFrameworkCore;
+using Rza_Website.Utilities;
 namespace GibjohnTutoring3
 {
     public class Program
@@ -16,6 +20,8 @@ namespace GibjohnTutoring3
 
             builder.Services.AddDbContext<TlS2300852GibjohnContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("MySqlConnection"), new MySqlServerVersion(new Version(8, 0, 29))));
             builder.Services.AddScoped<CustomerService>();
+            builder.Services.AddScoped<UserSession>();
+            builder.Services.AddSingleton<UserSession>();
 
             var app = builder.Build();
 
