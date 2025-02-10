@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using System.Security.Cryptography;
 
-namespace Rza_Website.Utilities
+namespace GibjohnTutoring3.Utilities
 {
     #region hidden
     public static class PasswordUtils

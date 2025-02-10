@@ -3,6 +3,7 @@
 @using GibjohnTutoring3.Services
 @inject NavigationManager NavigationManager
 @inject CustomerService CustomerService
+@inject UserSession UserSession
 
 <link rel="stylesheet " href="/CSS/Homepage.css"/>
 
@@ -27,8 +28,8 @@
 
 
 @code{
-    protected override async Task OnInitializedAsync()
-    {
-        CustomerName = await CustomerService.GetCustomerNameAsync(UserSession.UserId);
-    }
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     CustomerName = await CustomerService.GetCustomerNameAsync(UserSession.UserId);
+    // }
 }

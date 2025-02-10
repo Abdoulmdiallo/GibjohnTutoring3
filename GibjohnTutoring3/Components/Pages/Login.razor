@@ -1,7 +1,10 @@
 ﻿@page "/Login"
+﻿@using GibjohnTutoring3.Services
 @using GibjohnTutoring3.Models
-@inject GibjohnTutoring3.Services.CustomerService CustomerService
+@using GibjohnTutoring3.Utilities
 @inject NavigationManager NavigationManager
+@inject CustomerService CustomerService
+@inject UserSession UserSession
 @rendermode InteractiveServer
 
 <link rel=" stylesheet" href="/CCS/Login.css"/>		
@@ -20,7 +23,7 @@
 
         <div class="form-group">
             <label class="form-label">Password</label><br />
-            <input class="form-input" type="password" required @bind="newCustomer.Password" />
+            <input class="form-input" required type="password" @bind="newCustomer.Password" />
         </div>
 
         <button class="submit-button">Login</button>
@@ -29,21 +32,31 @@
 
 
 @code {
+
+
     private Customer newCustomer = new Customer();
     private string password;
-
     private async Task LoginCustomer()
     {
-        newCustomer.Password = await PasswordUtilis.Hashpassword(password);
+        password = newCustomer.Password  ;
         newCustomer = await CustomerService.Login(newCustomer);
-        if (newCustomer == null) 
+
+        if (newCustomer == null)
         {
-            Console.WriteLine("user could't be logged in");
+            Console.WriteLine("couldn't log in ");
+            StateHasChanged();
 
         }
+
         else
         {
-            NavigationManager.NavigateTo("/");//navigate to home         
+            Console.WriteLine("logged in");
+            UserSession.UserId = newCustomer.CustomerId;
+            Console.WriteLine(UserSession.UserId);
+            NavigationManager.NavigateTo("/");
         }
+
+
+    }
     }
 }
