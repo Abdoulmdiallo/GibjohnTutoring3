@@ -2,9 +2,10 @@
 @using GibjohnTutoring3.Models
 @using GibjohnTutoring3.Components
 @using GibjohnTutoring3.Services
-@inject GibjohnTutoring3.Services.CustomerService CustomerService
+@inject NavigationManager NavigationManager
 @inject CustomerService CustomerService
-@rendermode InteractiveServer
+@rendermode InteractiveServer 
+
 <link rel="stylesheet" href="/CSS/Signup.css" /> 
 
 
@@ -47,6 +48,7 @@
         await CustomerService.AddCustomerAsync(newCustomer);
         Console.WriteLine("User added");
         StateHasChanged();
+        NavigationManager.NavigateTo("Login");
     }
 
 }

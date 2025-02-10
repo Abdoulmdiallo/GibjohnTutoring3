@@ -1,7 +1,23 @@
 ﻿@page "/Quiz"
+@using GibjohnTutoring3.Utilities
+@using GibjohnTutoring3.Services
+@inject NavigationManager NavigationManager
+@inject CustomerService CustomerService
+@inject UserSession UserSession
+
 <link rel="stylesheet" href="/CCS/Quiz.css"/>
-<h3>Quiz</h3>
+<h1>Quiz</h1>
+<body>  
+    <h1>Welcome, @CustomerName</h1>
 
+
+</body>
 @code {
+    private string CustomerName;
+    protected override async Task OnInitializedAsync()
+    {
+        CustomerName = await CustomerService.GetCustomerNameAsync(UserSession.UserId);
+        Console.WriteLine($"Customer Name: {CustomerName}");
 
+    }
 }

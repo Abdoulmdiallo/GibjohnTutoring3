@@ -31,7 +31,7 @@ namespace GibjohnTutoring3.Services
         {
             if (userid == 0)
             {
-                return "";
+                return "no user id";
             }
             else
             {
@@ -43,7 +43,7 @@ namespace GibjohnTutoring3.Services
 
                 else
                 {
-                    return "";
+                    return $"{customer.Username}";
                 }
 
             }
