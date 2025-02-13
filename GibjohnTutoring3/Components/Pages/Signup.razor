@@ -6,33 +6,34 @@
 @inject CustomerService CustomerService
 @rendermode InteractiveServer 
 
-<link rel="stylesheet" href="/CSS/Signup.css" /> 
+<link rel="stylesheet" href="/CSS/Signup.css" />
 
 
+<body class="Register">
+    <h3 class="form-title">Register</h3>
+    <div class="register_container">  
+        <EditForm Model="newCustomer" OnValidSubmit="RegisterCustomer" FormName="RegisterForm" class="register-form">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+                <div class="form-group">
+                    <label class="form-label">Username</label><br />
+                    <input class="form-input" required @bind="newCustomer.Username" />
+                </div>
 
-<h3 class="form-title">Register</h3>
+                <div class="form-group">
+                    <label class="form-label">Password</label><br />
+                    <input class="form-input" type="password" required @bind="newCustomer.Password" />
+                </div>
 
-<EditForm Model="newCustomer" OnValidSubmit="RegisterCustomer" FormName="RegisterForm" class="register-form">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
-    <div class="form-group">
-        <label class="form-label">Username</label><br />
-        <input class="form-input" required @bind="newCustomer.Username" />
+                <div class="form-group">
+                    <label class="form-label">Email</label><br />
+                    <input class="form-input" type="email" @bind="newCustomer.Email" />
+                </div>
+
+                <button class="submit-button">Register</button>
+        </EditForm>
     </div>
-
-    <div class="form-group">
-        <label class="form-label">Password</label><br />
-        <input class="form-input" type="password" required @bind="newCustomer.Password" />
-    </div>
-
-    <div class="form-group">
-        <label class="form-label">Email</label><br />
-        <input class="form-input" type="email" @bind="newCustomer.Email" />
-    </div>
-
-    <button class="submit-button">Register</button>
-</EditForm>
-
+</body>
 <!-- Add the "Already have an account?" link here -->
 <div class="login-link">
     <p>Already have an account? <a href="/Login"> Login</a></p>

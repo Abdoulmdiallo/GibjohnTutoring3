@@ -7,9 +7,10 @@
 @inject UserSession UserSession
 @rendermode InteractiveServer
 
-<link rel=" stylesheet" href="/CCS/Login.css"/>		
+<link rel="stylesheet" href="/CSS/Login.css"/>    	
 <body>	
     <h3 class="form-title">Login</h3>
+    <div class="login-container">      
 
     <EditForm Model="newCustomer" OnValidSubmit="LoginCustomer" FormName="LoginForm" class="Login-form">
         <DataAnnotationsValidator />
@@ -26,6 +27,7 @@
 
         <button class="submit-button">Login</button>
     </EditForm>
+    </div>
 </body>
 
 
