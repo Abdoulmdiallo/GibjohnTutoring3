@@ -5,13 +5,22 @@
 @inject CustomerService CustomerService
 @inject UserSession UserSession
 
-<link rel="stylesheet" href="/CCS/Quiz.css"/>
-<h1>Quiz</h1>
-<body>  
-    <h1>Welcome, @CustomerName</h1>
+<link rel=" stylesheet" href="/CSS/Quiz.css"/>
+<div class="quiz-container">
+    <h1>Hello, @CustomerName</h1>
 
+    <div class="student-level">
+        <div class="level-circle">1</div>
+        <p>Student Level</p>
+    </div>
 
-</body>
+    <div class="quiz-grid">
+        @for (int i = 0; i < 8; i++)
+        {
+            <a href="Quiz_questions"><div class="quiz-card">QUIZ</div> </a>
+        }
+    </div>
+</div>
 @code {
     private string CustomerName;
     protected override async Task OnInitializedAsync()

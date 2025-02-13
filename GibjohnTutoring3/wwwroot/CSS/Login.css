@@ -1,4 +1,4 @@
-﻿/* General Styling */
+﻿
 body {
     background-color: #b3e0f2;
     display: flex;
@@ -8,8 +8,6 @@ body {
     text-align: center;
     height: 100vh;
 }
-
-/* Login Form Container */
 .login-container {
     background-color: white;
     padding: 20px;
@@ -18,28 +16,20 @@ body {
     text-align: center;
     width: 300px;
 }
-
-/* Form Title */
 .form-title {
     font-size: 20px;
     margin-bottom: 15px;
     color: #003366;
 }
-
-/* Form Group Styling */
 .form-group {
     margin-bottom: 15px;
 }
-
-/* Label Styling */
 .form-label {
     font-weight: bold;
     display: block;
     color: #003366;
     margin-bottom: 5px;
 }
-
-/* Input Field Styling */
 .form-input {
     width: 100%;
     padding: 10px;
@@ -54,8 +44,6 @@ body {
     .form-input::placeholder {
         color: lightgray;
     }
-
-/* Login Button */
 .submit-button {
     width: 100%;
     padding: 10px;
@@ -67,7 +55,6 @@ body {
     cursor: pointer;
     transition: 0.3s;
 }
-
     .submit-button:hover {
         background-color: #0077aa;
     }

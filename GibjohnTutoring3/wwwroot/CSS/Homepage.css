@@ -10,9 +10,6 @@ body {
     text-align: center;
     height: 100vh; /* Full height of the viewport */
 }
-
-
-
 .circle {
     position: absolute;
     width: 350px;
@@ -20,20 +17,16 @@ body {
     background-color: #2a9cba1d ; /* Light transparent circles */
     border-radius: 50%;
 }
-
-/* Positioning circles */
 .circle1 {
     top: 5%;
     left: 17%;
 }
-
 .circle2 {
     top: 30%;
     left: 10%;
     width: 400px;
     height: 400px;
 }
-
 .circle3 {
     bottom: 1%;
     right: 60%;

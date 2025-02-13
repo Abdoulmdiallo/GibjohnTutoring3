@@ -7,26 +7,29 @@
 @inject UserSession UserSession
 @rendermode InteractiveServer
 
-<link rel="stylesheet" href="/CSS/Login.css"/>    	
-<body>	
+<link rel="stylesheet" href="/CSS/Login.css" />
+<body>
     <h3 class="form-title">Login</h3>
-    <div class="login-container">      
+    <div class="login-container">
 
-    <EditForm Model="newCustomer" OnValidSubmit="LoginCustomer" FormName="LoginForm" class="Login-form">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
-        <div class="form-group">
-            <label class="form-label">Username</label><br />
-            <input class="form-input" required @bind="newCustomer.Username" />
-        </div>
+        <EditForm Model="newCustomer" OnValidSubmit="LoginCustomer" FormName="LoginForm" class="Login-form">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div class="form-group">
+                <label class="form-label">Username</label><br />
+                <input class="form-input" required @bind="newCustomer.Username" />
+            </div>
 
-        <div class="form-group">
-            <label class="form-label">Password</label><br />
-            <input class="form-input" required type="password" @bind="newCustomer.Password" />
-        </div>
+            <div class="form-group">
+                <label class="form-label">Password</label><br />
+                <input class="form-input" required type="password" @bind="newCustomer.Password" />
+            </div>
 
-        <button class="submit-button">Login</button>
-    </EditForm>
+            <button class="submit-button">Login</button>
+        </EditForm>
+    </div>
+    <div class="login-link">
+        @LoginError
     </div>
 </body>
 
@@ -35,16 +38,18 @@
 
 
     private Customer newCustomer = new Customer();
+    private string LoginError;
     private string password;
     private async Task LoginCustomer()
     {
-        password = newCustomer.Password  ;
+        password = newCustomer.Password;
         newCustomer = await CustomerService.Login(newCustomer);
 
         if (newCustomer == null)
         {
             Console.WriteLine("couldn't log in ");
-            StateHasChanged();
+            LoginError = "incorrect password or username";
+           
 
         }
 
@@ -58,5 +63,5 @@
 
 
     }
-    }
+}
 }
